@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>囲炉裏の宿 善古屋｜農林業体験と川サウナの農家民宿</title>
+<title>囲炉裏の宿 やまなみ｜田植え・タケノコ掘り・川サウナの民宿</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
@@ -63,6 +63,11 @@
     display:flex; align-items:flex-end;
   }
   .hero-svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .hero-photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .hero-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(20,42,60,.30) 0%, rgba(20,42,60,.45) 45%, rgba(20,42,60,.88) 100%);
+  }
   .hero-content{
     position:relative; z-index:2; padding:0 24px 90px; max-width:1080px; margin:0 auto; width:100%;
   }
@@ -175,29 +180,12 @@
 </header>
 
 <section class="hero">
-  <svg class="hero-svg" viewBox="0 0 1080 800" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-    <!-- sky gradient already via CSS background -->
-    <circle cx="860" cy="150" r="70" fill="#EAD9A0" opacity="0.55"/>
-    <!-- distant mountains -->
-    <polygon points="0,420 180,300 340,400 520,280 700,390 880,300 1080,400 1080,800 0,800" fill="#2E5142" opacity="0.55"/>
-    <polygon points="0,480 220,370 460,460 680,350 900,450 1080,380 1080,800 0,800" fill="#254A3B" opacity="0.75"/>
-    <!-- river -->
-    <path d="M0,650 C220,600 320,700 540,660 C760,620 860,690 1080,640 L1080,800 L0,800 Z" fill="#0F2A3B" opacity="0.85"/>
-    <path d="M0,660 C220,615 330,705 540,672 C760,635 860,700 1080,652" stroke="#4F7A8C" stroke-width="3" fill="none" opacity="0.5"/>
-    <!-- bamboo silhouettes -->
-    <g opacity="0.5" stroke="#1C3527" stroke-width="8" stroke-linecap="round">
-      <line x1="80" y1="800" x2="76" y2="520"/>
-      <line x1="120" y1="800" x2="112" y2="560"/>
-      <line x1="160" y1="800" x2="150" y2="500"/>
-      <line x1="960" y1="800" x2="968" y2="540"/>
-      <line x1="1000" y1="800" x2="1006" y2="580"/>
-      <line x1="1030" y1="800" x2="1040" y2="510"/>
-    </g>
-  </svg>
+  <img class="hero-photo" src="images/drone.jpg" alt="上空から見た宿と里山の風景">
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">福岡県 山あいの一日一組宿</div>
-    <h1>山に触れ、川に癒され、<br>古き良き日本を味わう。</h1>
-    <p>農業、林業、狩猟、川サウナ。里山の一年を、地元の暮らしそのままに体験できる小さな民宿です。</p>
+    <h1>土に触れ、川に沈み、<br>季節をまるごと味わう。</h1>
+    <p>田植え、タケノコ掘り、川サウナ。里山の一年を、地元の暮らしそのままに体験できる小さな民宿です。</p>
     <a href="#reserve" class="cta">空室状況・予約はこちら</a>
   </div>
 </section>
@@ -217,20 +205,9 @@
         <div class="fig"><div class="num">徒歩5分</div><div class="label">川サウナまで</div></div>
       </div>
     </div>
-    <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="480" fill="#E4DBC5"/>
-      <polygon points="60,220 200,120 340,220 340,260 60,260" fill="#8B5E3C"/>
-      <rect x="90" y="220" width="220" height="180" fill="#C9BC98"/>
-      <rect x="170" y="300" width="60" height="100" fill="#3A2E22"/>
-      <rect x="110" y="250" width="50" height="40" fill="#5C7A4E" opacity="0.7"/>
-      <rect x="240" y="250" width="50" height="40" fill="#5C7A4E" opacity="0.7"/>
-      <g stroke="#5C7A4E" stroke-width="4">
-        <line x1="20" y1="480" x2="20" y2="400"/>
-        <line x1="40" y1="480" x2="35" y2="410"/>
-        <line x1="360" y1="480" x2="365" y2="405"/>
-        <line x1="380" y1="480" x2="378" y2="415"/>
-      </g>
-    </svg>
+    <div style="width:100%; aspect-ratio:5/6; overflow:hidden; border-radius:2px;">
+      <img src="images/Masahumi.jpg" alt="囲炉裏の宿 やまなみ" style="width:100%; height:100%; object-fit:cover; display:block;">
+    </div>
   </div>
 </section>
 
@@ -251,12 +228,9 @@
           <p>裏山の竹林で、鍬一本で掘り出す朝の仕事。掘りたてはその場でアク抜きをして、夕食の一品に。土の中の手ごたえと香りは、この時期だけのものです。</p>
         </div>
         <div class="season-visual">
-          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="160" fill="#F2EDE1"/>
-            <ellipse cx="100" cy="140" rx="90" ry="14" fill="#D9CBA5"/>
-            <polygon points="100,40 82,140 118,140" fill="#8B5E3C"/>
-            <polygon points="100,40 90,90 110,90" fill="#5C7A4E"/>
-          </svg>
+          <div style="width:100%; aspect-ratio:5/4; overflow:hidden; border-radius:2px;">
+            <img src="images/Takenoko.jpg" alt="タケノコ掘りの様子" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
         </div>
       </div>
 
@@ -267,18 +241,9 @@
           <p>裸足で田んぼに入り、一列ずつ苗を植えていきます。泥の冷たさと、腰を落とす姿勢のきつさは、やってみないとわからないもの。秋には自分が植えた米を送ることもできます。</p>
         </div>
         <div class="season-visual">
-          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="160" fill="#F2EDE1"/>
-            <rect x="10" y="90" width="180" height="60" fill="#7FA6B3" opacity="0.6"/>
-            <g fill="#5C7A4E">
-              <rect x="24" y="80" width="4" height="24"/>
-              <rect x="50" y="84" width="4" height="20"/>
-              <rect x="76" y="78" width="4" height="26"/>
-              <rect x="102" y="84" width="4" height="20"/>
-              <rect x="128" y="80" width="4" height="24"/>
-              <rect x="154" y="84" width="4" height="20"/>
-            </g>
-          </svg>
+          <div style="width:100%; aspect-ratio:5/4; overflow:hidden; border-radius:2px;">
+            <img src="images/Ine_big.jpg" alt="田植え体験の様子" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
         </div>
       </div>
 
