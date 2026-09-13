@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>囲炉裏の宿 やまなみ｜田植え・タケノコ掘り・川サウナの民宿</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+  :root{
+    --indigo: #1F3A52;
+    --indigo-deep: #142A3C;
+    --bamboo: #5C7A4E;
+    --bamboo-light: #7C9A6B;
+    --gold: #C9A227;
+    --clay: #8B5E3C;
+    --paper: #EFE8D8;
+    --paper-light: #F7F3E9;
+    --ink: #2B2620;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Noto Sans JP', sans-serif;
+    color:var(--ink);
+    background:var(--paper-light);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{ font-family:'Shippori Mincho', serif; }
+
+  a{ color:inherit; }
+
+  img,svg{ display:block; max-width:100%; }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(20,42,60,0.0);
+    transition:background .3s ease;
+  }
+  header.scrolled{ background:rgba(20,42,60,0.92); backdrop-filter:blur(6px); }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; max-width:1080px; margin:0 auto;
+  }
+  .brand{ color:var(--paper); font-family:'Shippori Mincho',serif; font-size:1.15rem; letter-spacing:.04em; }
+  .navlinks{ display:flex; gap:28px; list-style:none; }
+  .navlinks a{ color:var(--paper); font-size:.86rem; text-decoration:none; letter-spacing:.05em; opacity:.9; }
+  .navlinks a:hover{ opacity:1; border-bottom:1px solid var(--gold); }
+  @media (max-width:640px){ .navlinks{ display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; min-height:100vh; overflow:hidden;
+    background:linear-gradient(180deg, var(--indigo-deep) 0%, var(--indigo) 60%, #2E5142 100%);
+    display:flex; align-items:flex-end;
+  }
+  .hero-svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .hero-content{
+    position:relative; z-index:2; padding:0 24px 90px; max-width:1080px; margin:0 auto; width:100%;
+  }
+  .hero-eyebrow{
+    color:var(--gold); font-size:.82rem; letter-spacing:.15em; margin-bottom:18px; font-weight:500;
+  }
+  .hero h1{
+    color:var(--paper-light); font-size:clamp(2.1rem, 5.2vw, 3.6rem); font-weight:700;
+    line-height:1.5; max-width:11ch; margin-bottom:26px;
+  }
+  .hero p{ color:#D9D2C0; max-width:42ch; font-size:1.02rem; margin-bottom:34px; }
+  .cta{
+    display:inline-block; background:var(--gold); color:var(--indigo-deep);
+    padding:14px 34px; font-weight:700; text-decoration:none; font-size:.95rem;
+    letter-spacing:.04em; border-radius:2px;
+    box-shadow:0 8px 24px rgba(201,162,39,.25);
+  }
+  .cta:hover{ background:#DDB63A; }
+
+  /* ---------- Section shared ---------- */
+  section{ padding:96px 0; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head .tag{ color:var(--bamboo); font-size:.85rem; letter-spacing:.08em; margin-bottom:10px; font-weight:500; }
+  .section-head h2{ font-size:clamp(1.6rem,3.4vw,2.2rem); line-height:1.6; }
+  .section-head p{ margin-top:18px; color:#5a5346; font-size:.98rem; }
+
+  /* ---------- About ---------- */
+  .about{ background:var(--paper-light); }
+  .about-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; }
+  .about-text p{ color:#4a4438; margin-bottom:16px; }
+  .about-figures{ display:flex; gap:28px; margin-top:32px; }
+  .fig{ }
+  .fig .num{ font-family:'Shippori Mincho',serif; font-size:1.8rem; color:var(--indigo); }
+  .fig .label{ font-size:.8rem; color:#7a7364; margin-top:4px; }
+  @media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Seasons timeline ---------- */
+  .seasons{ background:var(--paper); }
+  .season-list{ display:flex; flex-direction:column; gap:0; }
+  .season-item{
+    display:grid; grid-template-columns:140px 1fr 1fr; gap:36px;
+    padding:44px 0; border-top:1px solid rgba(43,38,32,.12);
+    align-items:center;
+  }
+  .season-item:last-child{ border-bottom:1px solid rgba(43,38,32,.12); }
+  .season-tag{
+    font-family:'Shippori Mincho',serif; font-size:1.3rem; color:var(--clay);
+  }
+  .season-tag .month{ display:block; font-family:'Noto Sans JP',sans-serif; font-size:.78rem; color:#8a8375; margin-top:6px; letter-spacing:.05em;}
+  .season-text h3{ font-size:1.2rem; margin-bottom:10px; color:var(--ink); }
+  .season-text p{ color:#5a5346; font-size:.94rem; }
+  .season-visual{ }
+  @media (max-width:820px){
+    .season-item{ grid-template-columns:1fr; gap:14px; }
+    .season-visual{ order:-1; max-width:220px; }
+  }
+
+  /* ---------- Reservation ---------- */
+  .reserve{ background:var(--indigo-deep); color:var(--paper-light); }
+  .reserve .section-head .tag{ color:var(--gold); }
+  .reserve .section-head p{ color:#C7C0AF; }
+  .reserve-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  .reserve-card{
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14);
+    padding:32px; border-radius:2px;
+  }
+  .reserve-card h3{ font-size:1.05rem; margin-bottom:14px; color:var(--gold); font-family:'Noto Sans JP',sans-serif; font-weight:700;}
+  .reserve-card p{ color:#C7C0AF; font-size:.92rem; margin-bottom:20px; }
+  .reserve-card .cta{ font-size:.88rem; padding:12px 26px; }
+  .form-embed{
+    width:100%; min-height:280px; border:1px dashed rgba(255,255,255,.3);
+    display:flex; align-items:center; justify-content:center; color:#8b8574; font-size:.85rem;
+    text-align:center; padding:24px;
+  }
+  @media (max-width:800px){ .reserve-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Access ---------- */
+  .access{ background:var(--paper-light); }
+  .access-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  .access-list{ list-style:none; }
+  .access-list li{ display:flex; gap:18px; padding:16px 0; border-top:1px solid rgba(43,38,32,.1); }
+  .access-list li:last-child{ border-bottom:1px solid rgba(43,38,32,.1); }
+  .access-list .k{ width:96px; flex-shrink:0; color:var(--bamboo); font-weight:700; font-size:.88rem; }
+  .access-list .v{ color:#4a4438; font-size:.92rem; }
+  .map-placeholder{
+    background:var(--paper); border:1px dashed #c9bfa6; min-height:220px;
+    display:flex; align-items:center; justify-content:center; color:#8a8375; font-size:.85rem; text-align:center; padding:20px;
+  }
+  @media (max-width:800px){ .access-grid{ grid-template-columns:1fr; } }
+
+  footer{
+    background:var(--indigo-deep); color:#9a9686; text-align:center;
+    padding:40px 24px; font-size:.82rem;
+  }
+  footer .brand{ color:var(--paper); margin-bottom:8px; display:block; }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <nav class="nav">
+    <div class="brand">囲炉裏の宿 やまなみ</div>
+    <ul class="navlinks">
+      <li><a href="#about">宿について</a></li>
+      <li><a href="#seasons">体験</a></li>
+      <li><a href="#reserve">予約</a></li>
+      <li><a href="#access">アクセス</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <svg class="hero-svg" viewBox="0 0 1080 800" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- sky gradient already via CSS background -->
+    <circle cx="860" cy="150" r="70" fill="#EAD9A0" opacity="0.55"/>
+    <!-- distant mountains -->
+    <polygon points="0,420 180,300 340,400 520,280 700,390 880,300 1080,400 1080,800 0,800" fill="#2E5142" opacity="0.55"/>
+    <polygon points="0,480 220,370 460,460 680,350 900,450 1080,380 1080,800 0,800" fill="#254A3B" opacity="0.75"/>
+    <!-- river -->
+    <path d="M0,650 C220,600 320,700 540,660 C760,620 860,690 1080,640 L1080,800 L0,800 Z" fill="#0F2A3B" opacity="0.85"/>
+    <path d="M0,660 C220,615 330,705 540,672 C760,635 860,700 1080,652" stroke="#4F7A8C" stroke-width="3" fill="none" opacity="0.5"/>
+    <!-- bamboo silhouettes -->
+    <g opacity="0.5" stroke="#1C3527" stroke-width="8" stroke-linecap="round">
+      <line x1="80" y1="800" x2="76" y2="520"/>
+      <line x1="120" y1="800" x2="112" y2="560"/>
+      <line x1="160" y1="800" x2="150" y2="500"/>
+      <line x1="960" y1="800" x2="968" y2="540"/>
+      <line x1="1000" y1="800" x2="1006" y2="580"/>
+      <line x1="1030" y1="800" x2="1040" y2="510"/>
+    </g>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-eyebrow">福岡県 山あいの一日一組宿</div>
+    <h1>土に触れ、川に沈み、<br>季節をまるごと味わう。</h1>
+    <p>田植え、タケノコ掘り、川サウナ。里山の一年を、地元の暮らしそのままに体験できる小さな民宿です。</p>
+    <a href="#reserve" class="cta">空室状況・予約はこちら</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <div class="section-head" style="margin-bottom:0;">
+        <div class="tag">ABOUT</div>
+        <h2>築120年の古民家を、<br>そのままの姿で受け継いでいます。</h2>
+      </div>
+      <p style="margin-top:28px;">やまなみは、囲炉裏を囲んで一日一組だけをお迎えする宿です。裏山には竹林、玄関の前には田んぼ、少し歩けば澄んだ川が流れています。宿泊者には、その季節にしかできない里山の仕事や遊びを、地元の方と一緒にご案内しています。</p>
+      <p>特別な設備はありませんが、火のそばで過ごす夜と、土や水に触れる昼間の時間だけは、どこよりも豊かにご用意できると思っています。</p>
+      <div class="about-figures">
+        <div class="fig"><div class="num">1組</div><div class="label">一日一組限定</div></div>
+        <div class="fig"><div class="num">3代</div><div class="label">続く米づくり</div></div>
+        <div class="fig"><div class="num">徒歩5分</div><div class="label">川サウナまで</div></div>
+      </div>
+    </div>
+    <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="480" fill="#E4DBC5"/>
+      <polygon points="60,220 200,120 340,220 340,260 60,260" fill="#8B5E3C"/>
+      <rect x="90" y="220" width="220" height="180" fill="#C9BC98"/>
+      <rect x="170" y="300" width="60" height="100" fill="#3A2E22"/>
+      <rect x="110" y="250" width="50" height="40" fill="#5C7A4E" opacity="0.7"/>
+      <rect x="240" y="250" width="50" height="40" fill="#5C7A4E" opacity="0.7"/>
+      <g stroke="#5C7A4E" stroke-width="4">
+        <line x1="20" y1="480" x2="20" y2="400"/>
+        <line x1="40" y1="480" x2="35" y2="410"/>
+        <line x1="360" y1="480" x2="365" y2="405"/>
+        <line x1="380" y1="480" x2="378" y2="415"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section class="seasons" id="seasons">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">EXPERIENCE / 季節の体験</div>
+      <h2>春から夏へ、里山の時間割。</h2>
+      <p>体験はすべて地元の生産者・案内人と一緒に行います。人数や開催時期は宿泊予約時にご相談ください。</p>
+    </div>
+
+    <div class="season-list">
+
+      <div class="season-item">
+        <div class="season-tag">春<span class="month">4月頃</span></div>
+        <div class="season-text">
+          <h3>タケノコ掘り</h3>
+          <p>裏山の竹林で、鍬一本で掘り出す朝の仕事。掘りたてはその場でアク抜きをして、夕食の一品に。土の中の手ごたえと香りは、この時期だけのものです。</p>
+        </div>
+        <div class="season-visual">
+          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="160" fill="#F2EDE1"/>
+            <ellipse cx="100" cy="140" rx="90" ry="14" fill="#D9CBA5"/>
+            <polygon points="100,40 82,140 118,140" fill="#8B5E3C"/>
+            <polygon points="100,40 90,90 110,90" fill="#5C7A4E"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="season-item">
+        <div class="season-tag">初夏<span class="month">5〜6月頃</span></div>
+        <div class="season-text">
+          <h3>田植え体験</h3>
+          <p>裸足で田んぼに入り、一列ずつ苗を植えていきます。泥の冷たさと、腰を落とす姿勢のきつさは、やってみないとわからないもの。秋には自分が植えた米を送ることもできます。</p>
+        </div>
+        <div class="season-visual">
+          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="160" fill="#F2EDE1"/>
+            <rect x="10" y="90" width="180" height="60" fill="#7FA6B3" opacity="0.6"/>
+            <g fill="#5C7A4E">
+              <rect x="24" y="80" width="4" height="24"/>
+              <rect x="50" y="84" width="4" height="20"/>
+              <rect x="76" y="78" width="4" height="26"/>
+              <rect x="102" y="84" width="4" height="20"/>
+              <rect x="128" y="80" width="4" height="24"/>
+              <rect x="154" y="84" width="4" height="20"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="season-item">
+        <div class="season-tag">盛夏<span class="month">7〜8月頃</span></div>
+        <div class="season-text">
+          <h3>川サウナ</h3>
+          <p>薪で温めた小さなサウナ小屋のあと、そのまま川に飛び込みます。蝉の声、水の冷たさ、火の匂い。整うという言葉では足りないくらいの体験です。</p>
+        </div>
+        <div class="season-visual">
+          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="160" fill="#F2EDE1"/>
+            <rect x="60" y="60" width="70" height="60" fill="#8B5E3C"/>
+            <polygon points="55,60 95,30 135,60" fill="#5C4530"/>
+            <rect x="0" y="120" width="200" height="40" fill="#4F7A8C" opacity="0.6"/>
+            <circle cx="150" cy="55" r="8" fill="#C9A227" opacity="0.8"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">RESERVATION</div>
+      <h2>ご予約・お問い合わせ</h2>
+      <p>お電話でのお問い合わせも歓迎です。体験の内容や人数によってご案内が変わるため、まずはフォームからご希望をお知らせください。</p>
+    </div>
+    <div class="reserve-grid">
+      <div class="reserve-card">
+        <h3>宿泊・体験のご予約</h3>
+        <p>フォームに希望日と人数、体験のご希望をご記入ください。1〜2日以内に空室状況とあわせてご連絡します。</p>
+        <div class="form-embed">ここにGoogleフォームを埋め込みます<br>（&lt;iframe&gt;タグでフォームのURLを差し込むだけでOK）</div>
+      </div>
+      <div class="reserve-card">
+        <h3>空室状況</h3>
+        <p>Googleカレンダーで最新の空き状況を公開しています。埋まっている日は選べないようになっています。</p>
+        <div class="form-embed">ここにGoogleカレンダーを埋め込みます<br>（共有設定→埋め込みコードをそのまま貼り付け）</div>
+        <a href="#" class="cta">お電話でのお問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap access-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:32px;">
+        <div class="tag">ACCESS</div>
+        <h2>アクセス</h2>
+      </div>
+      <ul class="access-list">
+        <li><span class="k">住所</span><span class="v">福岡県〇〇市〇〇町 000（詳細は予約確定後にご案内）</span></li>
+        <li><span class="k">お車で</span><span class="v">最寄りICより約20分</span></li>
+        <li><span class="k">電車・バス</span><span class="v">最寄駅よりバス30分＋徒歩10分／ご希望の方は送迎相談可</span></li>
+        <li><span class="k">チェックイン</span><span class="v">15:00〜18:00</span></li>
+        <li><span class="k">お問い合わせ</span><span class="v">TEL 000-0000-0000 ／ LINE公式アカウントからも可</span></li>
+      </ul>
+    </div>
+    <div class="map-placeholder">
+      ここにGoogleマップを埋め込みます<br>（Googleマップ「共有」→「地図を埋め込む」のコードを貼り付け）
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">囲炉裏の宿 やまなみ</span>
+  ここに書かれている宿名・地名・電話番号・写真の代わりのイラストはすべて仮のものです。実際の情報に差し替えてご利用ください。
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+</script>
+
+</body>
+</html>
